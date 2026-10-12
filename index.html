@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nadine Galvez, naturopathe à Perpignan</title>
+<meta name="description" content="Naturopathie, massages bien-être et réflexologie plantaire à Perpignan, 3 impasse du Conflent. Sur rendez-vous, du lundi au vendredi, 10h–19h.">
+<meta property="og:title" content="Nadine Galvez, naturopathe à Perpignan">
+<meta property="og:description" content="Naturopathie, massages bien-être et réflexologie plantaire, 3 impasse du Conflent à Perpignan. Sur rendez-vous.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#535F3C">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M8 62V30a24 24 0 0 1 48 0v32z' fill='%23535F3C'/%3E%3Ctext x='32' y='50' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='30' fill='%23F3EFE4'%3EN%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300,100;0,9..144,600,100;1,9..144,300,100&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Naturopathe Nadine Galvez",
+  "description": "Naturopathe et praticienne en massages bien-être et réflexologie plantaire à Perpignan.",
+  "telephone": "+33623291049",
+  "email": "nadine5.naturopathe@gmail.com",
+  "url": "https://sites.google.com/view/nadine-galvez-naturopathe/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "3 Imp. du Conflent",
+    "postalCode": "66000",
+    "addressLocality": "Perpignan",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 42.6970459, "longitude": 2.8817081 },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "10:00",
+    "closes": "19:00"
+  }],
+  "paymentAccepted": "Virement (Wero), espèces, chèque",
+  "hasMap": "https://www.google.com/maps/place/?q=place_id:ChIJXXZc8NpvsBIR0pM6ItIRNzE"
+}
+</script>
+<style>
+/* ==========================================================================
+   DESIGN DECISIONS: Nadine Galvez, naturopathe, Perpignan
+   Direction: SOFT BEAUTY, "sage & linen". The cabinet has sage-green walls,
+   light oak shelves, white linen and a painted folding screen with fuchsias
+   and hummingbirds. The façade at n° 3 has arched windows, so the arch is the
+   shape motif: every photo is masked as an arch, and so is the monogram.
+   Palette (taken from the photos): linen paper --bg (towels, façade render),
+   sage --surface (the wall, lightened), deep olive --brand (the wall in
+   shadow) for the single strong colour field (contact), and a fuchsia/plum
+   --accent from the screen, used rarely (italic words, stars, the live dot).
+   Type: Fraunces with SOFT=100 (300 roman/italic for display, 600 only for the
+   1 h 30 numerals that show the photo through them) + Jost (geometric, quiet)
+   for body and labels. Display/body ratio > 1:5.
+   Hero: typographic poster ("Prendre le temps de vous écouter.") over an
+   arched photo of the massage table, with the rating and live badge on the
+   first screen. Signature moment: a giant "1 h 30" with the consultation
+   room photo inside the numerals (the length of a first consultation, and
+   the "elle prend le temps" that comes up in nearly every review).
+   Rhythm: poster hero → swipe rail of reviews → giant type band → sticky
+   side + numbered list → price list on a sage panel → offset collage →
+   façade + hours + map split → olive contact field. No two alike in a row.
+   Motion: slow and gentle. Lines rise out of masks, the arches open with clip-path,
+   reveals fade up 20px. All of it is off under prefers-reduced-motion.
+   ========================================================================== */
+:root{
+  --bg:#F3EFE4; --surface:#E4E3D1; --ink:#262A1E; --ink-soft:#595D49;
+  --brand:#535F3C; --brand-ink:#F3EFE4; --accent:#8B3A5C; --line:rgba(38,42,30,.16);
+  --wall:#A3A77F; --oak:#D9C3A0;
+
+  --font-display:"Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body:"Jost", "Avenir Next", "Segoe UI", sans-serif;
+  --step--1:clamp(.875rem,.85rem + .12vw,.95rem);
+  --step-0:clamp(1.0625rem,1rem + .25vw,1.1875rem);
+  --step-1:clamp(1.25rem,1.15rem + .5vw,1.5rem);
+  --step-2:clamp(1.5rem,1.3rem + 1vw,2.1rem);
+  --step-3:clamp(1.9rem,1.5rem + 2vw,3rem);
+  --step-4:clamp(2.4rem,1.7rem + 3.6vw,4.5rem);
+  --step-5:clamp(3rem,12vw,8.5rem);
+  --step-6:clamp(8rem,54vw,40rem);
+
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+  --space-6:32px; --space-7:48px; --space-8:64px; --space-9:96px; --space-10:128px;
+  --section:clamp(64px,12vw,160px);
+  --gutter:clamp(20px,5vw,48px);
+  --max:1280px;
+
+  --r-1:14px; --r-arch:999px 999px 0 0;
+
+  --ease-out:cubic-bezier(.16,1,.3,1); --ease-in-out:cubic-bezier(.65,0,.35,1);
+  --dur-1:180ms; --dur-2:400ms; --dur-3:800ms;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;font-weight:400;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);font-weight:300;font-variation-settings:"SOFT" 100;margin:0;text-wrap:balance;letter-spacing:-.02em}
+p{margin:0;text-wrap:pretty}
+em{font-style:italic}
+::selection{background:var(--accent);color:var(--brand-ink)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+[id]{scroll-margin-top:84px}
+
+.skip{position:absolute;left:var(--space-4);top:-100px;z-index:100;background:var(--ink);color:var(--bg);padding:var(--space-3) var(--space-4);border-radius:var(--r-1);text-decoration:none}
+.skip:focus{top:var(--space-4)}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:var(--space-4)}
+@media (min-width:960px){.grid{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--space-5)}}
+
+.label{font-family:var(--font-body);font-size:var(--step--1);font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.label b{font-weight:500;color:var(--accent)}
+.lnk{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.28em;text-decoration-color:color-mix(in srgb,currentColor 40%,transparent);transition:text-decoration-color var(--dur-1)}
+.lnk:hover{text-decoration-color:currentColor}
+.draw{text-decoration:none;background:linear-gradient(currentColor,currentColor) left 100%/0 1px no-repeat;transition:background-size var(--dur-2) var(--ease-out);padding-bottom:2px}
+@media (hover:hover){.draw:hover{background-size:100% 1px}}
+.ico{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.stars{display:inline-flex;gap:2px;color:var(--accent)}
+.stars svg{width:14px;height:14px;fill:currentColor}
+
+/* Buttons */
+.btn{--b:var(--ink);--t:var(--bg);position:relative;display:inline-flex;align-items:center;justify-content:center;gap:var(--space-3);min-height:52px;padding:0 var(--space-6);border-radius:999px;background:var(--b);color:var(--t);font:500 var(--step-0)/1 var(--font-body);text-decoration:none;border:1px solid var(--b);overflow:hidden;isolation:isolate;transition:transform var(--dur-1) var(--ease-out),color var(--dur-2) var(--ease-out)}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--accent);border-radius:inherit;transform:translateY(101%);transition:transform var(--dur-2) var(--ease-out)}
+.btn--ghost{--b:transparent;--t:var(--ink);border-color:var(--line)}
+.btn--light{--b:var(--brand-ink);--t:var(--brand)}
+.btn--line-light{--b:transparent;--t:var(--brand-ink);border-color:rgba(243,239,228,.35)}
+.btn:active{transform:scale(.97)}
+@media (hover:hover){.btn:hover::before{transform:none}.btn:hover{color:var(--brand-ink);border-color:var(--accent)}}
+
+/* Header */
+.hdr{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 94%,transparent);border-bottom:1px solid transparent;transition:border-color var(--dur-2),padding var(--dur-2) var(--ease-out)}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);padding-block:var(--space-4);transition:padding var(--dur-2) var(--ease-out)}
+.hdr.is-scrolled{border-color:var(--line)}
+.hdr.is-scrolled .hdr__in{padding-block:var(--space-2)}
+.brand{display:flex;align-items:center;gap:var(--space-3);text-decoration:none;min-height:44px}
+.brand svg{width:30px;height:34px;flex:none;transition:transform var(--dur-2) var(--ease-out)}
+.hdr.is-scrolled .brand svg{transform:scale(.86)}
+.brand__name{font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-size:1.3rem;line-height:1;letter-spacing:-.01em}
+.brand__name small{display:block;white-space:nowrap;font-family:var(--font-body);font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-top:5px}
+.hdr__cta{display:none}
+.menu-btn{display:inline-flex;flex:none;align-items:center;gap:var(--space-2);min-height:44px;min-width:44px;padding:0 var(--space-3) 0 var(--space-4);border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--ink);font:500 var(--step--1)/1 var(--font-body);letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+.menu-btn i{display:grid;gap:5px;width:16px}
+.menu-btn i::before,.menu-btn i::after{content:"";height:1.5px;background:currentColor;transition:transform var(--dur-2) var(--ease-out)}
+.menu-btn[aria-expanded="true"] i::before{transform:translateY(3.25px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] i::after{transform:translateY(-3.25px) rotate(-45deg)}
+.nav{position:fixed;inset:0;z-index:-1;background:var(--surface);padding:calc(96px + var(--space-5)) var(--gutter) var(--space-8);display:flex;flex-direction:column;justify-content:space-between;visibility:hidden;opacity:0;transition:opacity var(--dur-2) var(--ease-out),visibility 0s var(--dur-2)}
+.nav.is-open{visibility:visible;opacity:1;transition:opacity var(--dur-2) var(--ease-out)}
+.nav ol{list-style:none;margin:0;padding:0;counter-reset:n}
+.nav li{counter-increment:n;border-bottom:1px solid var(--line);opacity:0;transform:translateY(16px);transition:opacity var(--dur-2) var(--ease-out),transform var(--dur-3) var(--ease-out);transition-delay:calc(var(--i) * 60ms + 80ms)}
+.nav.is-open li{opacity:1;transform:none}
+.nav li a{display:flex;align-items:baseline;gap:var(--space-4);padding:var(--space-3) 0;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-3);text-decoration:none;line-height:1.15}
+.nav li a::before{content:"0" counter(n);font:500 var(--step--1)/1 var(--font-body);letter-spacing:.12em;color:var(--accent)}
+.nav__foot{display:grid;gap:var(--space-2);color:var(--ink-soft);font-size:var(--step--1)}
+body.is-locked{overflow:hidden}
+@media (min-width:960px){
+  .menu-btn,.nav{display:none}
+  .hdr__cta{display:flex;align-items:center;gap:var(--space-6)}
+  .hdr__links{display:flex;gap:var(--space-5);font-size:var(--step--1);letter-spacing:.04em}
+  .hdr__links a{text-decoration:none}
+  .hdr__cta .btn{min-height:44px;padding:0 var(--space-5);font-size:var(--step--1)}
+}
+
+/* Hero */
+.hero{padding-block:var(--space-4) var(--section)}
+.hero .grid{row-gap:var(--space-4);align-items:end}
+.hero__kick{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4);align-items:center;justify-content:space-between}
+.hero__kick .label{letter-spacing:.1em;font-size:.8rem}
+.hero__media{grid-column:1/-1;position:relative}
+.arch{position:relative;overflow:hidden;border-radius:var(--r-arch);background:var(--surface)}
+.arch img{width:100%;height:100%;object-fit:cover}
+.hero__media .arch{height:min(58svh,560px);min-height:340px}
+.hero__media .arch::after{content:"";position:absolute;inset:auto 0 0;height:50%;background:linear-gradient(to top,var(--bg) 6%,color-mix(in srgb,var(--bg) 72%,transparent) 38%,transparent);pointer-events:none}
+.hero__media img{object-position:45% 30%}
+.hero__title{grid-column:1/-1;font-size:clamp(3.2rem,15vw,8.5rem);line-height:.92;letter-spacing:-.045em;position:relative;z-index:2;margin-top:-2.05em;padding-left:var(--space-1)}
+.hero__title .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero__title .ln>span{display:block}
+.hero__title em{color:var(--accent);font-weight:300}
+.hero__side{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3);border-block:1px solid var(--line);padding-block:var(--space-3);margin-top:var(--space-2)}
+.rating{display:grid;grid-template-columns:auto auto;align-items:center;column-gap:var(--space-3);text-decoration:none;min-height:44px}
+.rating .stars{grid-column:2}
+.rating__n{grid-row:1/3;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-3);line-height:.9;letter-spacing:-.03em}
+.rating__t{font-size:var(--step--1);color:var(--ink-soft);line-height:1.35}
+.badge{display:inline-flex;align-items:center;gap:var(--space-2);font-size:var(--step--1);line-height:1.3;color:var(--ink)}
+.badge::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--ink-soft)}
+.badge.is-open::before{background:#3F7A3A;box-shadow:0 0 0 0 rgba(63,122,58,.5);animation:pulse 2.4s var(--ease-out) infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(63,122,58,.45)}100%{box-shadow:0 0 0 10px rgba(63,122,58,0)}}
+.hero__lede{grid-column:1/-1;max-width:36ch;font-size:var(--step-1);line-height:1.45;color:var(--ink);margin-top:var(--space-3)}
+.hero__lede strong{font-weight:500}
+.hero__cta{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-2)}
+.hero__cta .btn{flex:1 1 100%;white-space:nowrap;padding-inline:var(--space-4)}
+.hero__where{grid-column:1/-1;display:flex;gap:var(--space-2);align-items:center;font-size:var(--step--1);color:var(--ink-soft)}
+@media (min-width:640px){.hero__cta .btn{flex:0 0 auto;padding-inline:var(--space-6)}.hero__media .arch{height:min(62svh,640px)}}
+@media (min-width:960px){
+  .hero{padding-top:var(--space-7)}
+  .hero .grid{grid-template-rows:auto auto auto auto 1fr;row-gap:var(--space-6);align-items:start}
+  .hero__kick{grid-column:1/8;grid-row:1;justify-content:flex-start;gap:var(--space-6)}
+  .hero__kick .label{letter-spacing:.16em;font-size:var(--step--1)}
+  .hero__title{grid-column:1/10;grid-row:2;margin-top:0;padding-left:0}
+  .hero__media{grid-column:8/13;grid-row:1/6;align-self:stretch}
+  .hero__media .arch{height:100%;min-height:640px}
+  .hero__media .arch::after{display:none}
+  .hero__media img{object-position:45% 55%}
+  .hero__lede{grid-column:1/6;grid-row:3;margin-top:0}
+  .hero__side{grid-column:1/7;grid-row:4;margin-top:0}
+  .hero__cta{grid-column:1/7;grid-row:5;margin-top:0}
+  .hero__where{display:none}
+}
+
+/* Section scaffolding */
+.sec{padding-block:var(--section)}
+.sec__head{display:grid;gap:var(--space-4);margin-bottom:var(--space-7)}
+.h2{font-size:var(--step-4);line-height:1.02;letter-spacing:-.03em}
+.h2 em{color:var(--accent)}
+.prose{max-width:62ch;color:var(--ink-soft)}
+.prose p+p{margin-top:var(--space-4)}
+
+/* Reviews rail */
+.proof{background:var(--surface);border-radius:var(--r-1);margin-inline:clamp(0px,2vw,24px);padding-bottom:var(--space-8)}
+.proof__top{display:grid;gap:var(--space-6)}
+.proof__quote{font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-3);line-height:1.12;letter-spacing:-.02em;text-wrap:balance;max-width:20ch}
+.proof__quote cite{display:block;margin-top:var(--space-4);font:500 var(--step--1)/1.4 var(--font-body);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+.proof__score{display:flex;align-items:flex-end;gap:var(--space-4);border-top:1px solid var(--line);padding-top:var(--space-5)}
+.proof__score .rating__n{font-size:var(--step-5)}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(84%,380px);gap:var(--space-4);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);padding:var(--space-7) var(--gutter) var(--space-5);margin-inline:calc(var(--gutter) * -1);scrollbar-width:none;overscroll-behavior-x:contain}
+.rail::-webkit-scrollbar{display:none}
+.rv{scroll-snap-align:start;display:flex;flex-direction:column;gap:var(--space-5);justify-content:space-between;background:var(--bg);border-radius:var(--r-1);padding:var(--space-6) var(--space-5) var(--space-5);margin:0}
+.rv blockquote{margin:0;font-size:var(--step-0);line-height:1.55}
+.rv blockquote::before{content:"“";display:block;font-family:var(--font-display);font-size:4rem;line-height:.6;height:.4em;color:var(--wall)}
+.rv figcaption{display:flex;justify-content:space-between;align-items:center;gap:var(--space-3);border-top:1px solid var(--line);padding-top:var(--space-4);font-weight:500;font-size:var(--step--1);letter-spacing:.06em}
+.rv figcaption small{display:block;font-weight:400;color:var(--ink-soft);letter-spacing:0}
+.rail-foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:var(--space-4)}
+.rail-hint{font-size:var(--step--1);color:var(--ink-soft);display:flex;align-items:center;gap:var(--space-2)}
+.more{display:inline-flex;align-items:center;gap:var(--space-2);min-height:44px;font-weight:500;text-decoration:none}
+.more .ico{transition:transform var(--dur-2) var(--ease-out)}
+@media (hover:hover){.more:hover .ico{transform:translateX(4px)}}
+@media (min-width:960px){
+  .proof__top{grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--space-5);align-items:end}
+  .proof__top>.label{grid-column:1/-1}
+  .proof__quote{grid-column:1/9}
+  .proof__score{grid-column:9/13;border-top:0;border-left:1px solid var(--line);padding:0 0 0 var(--space-6);flex-direction:column;align-items:flex-start}
+  .rail{margin-inline:0;padding-inline:0;scroll-padding-inline:0;grid-auto-columns:calc((100% - 2 * var(--space-4)) / 3.3)}
+  .rail-hint{display:none}
+}
+
+/* Signature: 1 h 30 */
+.time{padding-block:var(--section);overflow:hidden}
+.time__num{font-family:var(--font-display);font-weight:600;font-variation-settings:"SOFT" 100,"opsz" 144;font-size:var(--step-6);line-height:.78;letter-spacing:-.06em;margin:0 0 var(--space-6) -.04em;white-space:nowrap;color:var(--brand)}
+.time__num span{font-weight:300;font-style:italic;font-size:.42em;letter-spacing:-.02em;margin-inline:.04em;vertical-align:.55em;color:var(--accent);-webkit-text-fill-color:var(--accent)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .time__num{background:linear-gradient(rgba(38,42,30,.18),rgba(38,42,30,.18)),url("assets/photos/photo-01.jpg") 80% 34%/200% auto var(--brand);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+}
+.time .grid{row-gap:var(--space-5)}
+.time .label{grid-column:1/-1}
+.time__txt{grid-column:1/-1;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-2);line-height:1.25;letter-spacing:-.01em}
+.time__note{grid-column:1/-1;color:var(--ink-soft);max-width:44ch}
+@media (min-width:960px){.time__txt{grid-column:5/11}.time__note{grid-column:5/10}.time .label{grid-column:1/4}}
+
+/* Accompagnement: sticky side + numbered list */
+.care .grid{row-gap:var(--space-7)}
+.care__side{grid-column:1/-1}
+.care__side .h2{margin-block:var(--space-4) var(--space-5)}
+.care__list{grid-column:1/-1;list-style:none;margin:0;padding:0;counter-reset:c;border-top:1px solid var(--line)}
+.care__list li{counter-increment:c;display:grid;grid-template-columns:3.2rem 1fr;gap:var(--space-2) var(--space-4);padding:var(--space-5) 0;border-bottom:1px solid var(--line);align-items:baseline}
+.care__list li::before{content:counter(c,decimal-leading-zero);font:500 var(--step--1)/1 var(--font-body);letter-spacing:.12em;color:var(--accent)}
+.care__list h3{font-size:var(--step-3);line-height:1.05;letter-spacing:-.025em}
+.care__list p{grid-column:2;font-size:var(--step--1);color:var(--ink-soft);max-width:46ch;line-height:1.5}
+.care__list p q{font-style:italic;quotes:"« " " »"}
+@media (min-width:960px){
+  .care__side{grid-column:1/6;position:sticky;top:120px;align-self:start}
+  .care__list{grid-column:7/13}
+  .care__list li{grid-template-columns:4.5rem 1fr;padding:var(--space-6) 0}
+}
+
+/* Prestations: price list on a sage panel */
+.svc{position:relative}
+.svc__panel{background:var(--wall);color:var(--ink);border-radius:var(--r-1);padding:var(--space-7) var(--space-5);position:relative}
+.svc__panel .label{color:var(--ink)}
+.svc .h2{margin:var(--space-4) 0 var(--space-7);max-width:14ch}
+.menu{display:grid;gap:var(--space-7)}
+.menu h3{font:500 var(--step--1)/1 var(--font-body);letter-spacing:.16em;text-transform:uppercase;padding-bottom:var(--space-4);border-bottom:1px solid rgba(38,42,30,.35)}
+.menu ul{list-style:none;margin:0;padding:0}
+.menu li{display:grid;grid-template-columns:1fr auto;gap:var(--space-1) var(--space-4);padding:var(--space-5) 0;border-bottom:1px solid rgba(38,42,30,.22);align-items:baseline}
+.menu .n{font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-1);line-height:1.2}
+.menu .d{grid-column:1;font-size:var(--step--1);color:#2F3326}
+.menu .p{grid-column:2;grid-row:1;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-size:var(--step-1);white-space:nowrap;font-variant-numeric:lining-nums}
+.menu .v{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-5);font-size:var(--step--1);color:#2F3326}
+.svc__foot{display:grid;gap:var(--space-2);font-size:var(--step--1);padding-top:var(--space-2)}
+.svc__img{display:none}
+@media (min-width:960px){
+  .svc__panel{padding:var(--space-9) var(--space-8);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--space-5)}
+  .svc__head{grid-column:1/6}
+  .menu{grid-column:1/-1;grid-template-columns:1fr 1fr;column-gap:var(--space-8);row-gap:var(--space-7);grid-template-areas:"a b" "f b"}
+  .menu>:nth-child(1){grid-area:a}.menu>:nth-child(2){grid-area:b}.svc__foot{grid-area:f;align-self:end}
+  .svc__img{display:block;position:absolute;right:var(--space-8);top:calc(var(--space-8) * -1);width:min(26%,300px)}
+  .svc__img .arch{aspect-ratio:3/4;box-shadow:0 30px 60px -40px rgba(38,42,30,.5)}
+  .svc__img img{object-position:50% 70%;transform:scale(1.8);transform-origin:52% 72%}
+}
+
+/* Cabinet: offset collage / mobile rail */
+.cab .sec__head{max-width:40rem}
+.collage{display:grid;grid-auto-flow:column;grid-auto-columns:76%;gap:var(--space-4);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gutter);padding:0 var(--gutter) var(--space-2);margin-inline:calc(var(--gutter) * -1);scrollbar-width:none}
+.collage::-webkit-scrollbar{display:none}
+.ph{margin:0;scroll-snap-align:start;display:grid;gap:var(--space-3)}
+.ph .frame{aspect-ratio:4/5;overflow:hidden;border-radius:var(--r-1);background:var(--surface)}
+.ph:nth-child(odd) .frame{border-radius:var(--r-arch)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-3) var(--ease-out)}
+.ph figcaption{font-size:var(--step--1);color:var(--ink-soft);display:flex;gap:var(--space-3)}
+.ph figcaption span{color:var(--accent);font-weight:500;letter-spacing:.1em}
+@media (hover:hover){.ph:hover img{transform:scale(1.03)}}
+@media (min-width:960px){
+  .collage{grid-auto-flow:row;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--space-5);overflow:visible;margin:0;padding:0}
+  .ph:nth-child(1){grid-column:1/5}
+  .ph:nth-child(2){grid-column:5/10;margin-top:var(--space-10)}
+  .ph:nth-child(2) .frame{aspect-ratio:4/3}
+  .ph:nth-child(3){grid-column:10/13;margin-top:var(--space-7)}
+  .cab .cab__quote{margin:var(--space-8) 0 0 calc((100% + var(--space-5)) / 12 * 5)}
+}
+.cab__quote{margin:var(--space-7) 0 0;max-width:30ch;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-style:italic;font-size:var(--step-2);line-height:1.25;color:var(--ink);padding-top:var(--space-6)}
+.cab__quote cite{display:block;margin-top:var(--space-3);font:500 var(--step--1)/1.4 var(--font-body);font-style:normal;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* Accès: façade + hours + map */
+.visit .grid{row-gap:var(--space-7)}
+.visit__a{grid-column:1/-1;display:grid;gap:var(--space-5);align-content:start}
+.visit__door{display:grid;grid-template-columns:40% 1fr;gap:var(--space-5);align-items:end}
+.visit__door .arch{aspect-ratio:3/4}
+.visit__door img{object-position:53% 62%}
+.visit__door p{font-size:var(--step--1);color:var(--ink-soft)}
+.addr{font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:var(--step-3);line-height:1.08;letter-spacing:-.02em;font-style:normal}
+.access{display:flex;gap:var(--space-3);align-items:flex-start;font-size:var(--step--1);color:var(--ink-soft)}
+.access .ico{color:var(--brand);margin-top:2px}
+.visit__b{grid-column:1/-1}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours caption{text-align:left;padding-bottom:var(--space-4);display:flex;flex-wrap:wrap;justify-content:space-between;gap:var(--space-2)}
+.hours th,.hours td{padding:var(--space-3) var(--space-2);border-bottom:1px solid var(--line);text-align:left;font-weight:400}
+.hours th{text-transform:capitalize}
+.hours td{text-align:right;white-space:nowrap}
+.hours tr.is-closed td{color:var(--ink-soft)}
+.hours tr.is-today{background:var(--surface)}
+.hours tr.is-today th{font-weight:500}
+.hours tr.is-today th::after{content:"aujourd’hui";margin-left:var(--space-3);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500}
+.map{margin-top:var(--space-6);border-radius:var(--r-1);overflow:hidden;background:var(--surface);aspect-ratio:4/3;position:relative}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.7) sepia(.08)}
+.map__fb{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:var(--space-5);font-size:var(--step--1)}
+.visit__btns{display:flex;flex-wrap:wrap;gap:var(--space-3);margin-top:var(--space-5)}
+@media (min-width:960px){
+  .visit__a{grid-column:1/6}
+  .visit__b{grid-column:7/13}
+  .map{aspect-ratio:16/10}
+}
+
+/* Contact: the one strong colour field */
+.contact{background:var(--brand);color:var(--brand-ink);padding-block:var(--section) var(--space-8);border-radius:var(--r-1) var(--r-1) 0 0}
+.contact .label{color:rgba(243,239,228,.75)}
+.contact .h2 em{color:var(--oak)}
+.contact .grid{row-gap:var(--space-6)}
+.contact__h{grid-column:1/-1;margin-top:var(--space-4)}
+.tel-big{grid-column:1/-1;font-family:var(--font-display);font-variation-settings:"SOFT" 100;font-weight:300;font-size:clamp(2.3rem,11vw,7rem);line-height:1;letter-spacing:-.035em;text-decoration:none;white-space:nowrap;justify-self:start}
+.contact__p{grid-column:1/-1;max-width:46ch;color:rgba(243,239,228,.85)}
+.contact__btns{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:var(--space-3)}
+.contact__btns .btn{flex:1 1 200px}
+.contact__meta{grid-column:1/-1;display:grid;gap:var(--space-4);border-top:1px solid rgba(243,239,228,.25);padding-top:var(--space-5);font-size:var(--step--1)}
+.contact__meta a{display:inline-flex;align-items:center;gap:var(--space-3);min-height:44px;text-decoration:none;overflow-wrap:anywhere}
+.contact .btn::before{background:var(--oak)}
+@media (hover:hover){.contact .btn:hover{color:var(--ink);border-color:var(--oak)}}
+@media (min-width:960px){
+  .contact__h{grid-column:1/9}
+  .tel-big{grid-column:1/-1}
+  .contact__p{grid-column:1/6}
+  .contact__btns{grid-column:7/13;align-self:end}
+  .contact__meta{grid-template-columns:repeat(3,auto);justify-content:space-between}
+}
+
+/* Footer */
+.ftr{background:var(--brand);color:rgba(243,239,228,.78);font-size:var(--step--1);padding:var(--space-6) 0 var(--space-7)}
+.ftr .wrap{display:flex;flex-wrap:wrap;gap:var(--space-3) var(--space-6);justify-content:space-between;border-top:1px solid rgba(243,239,228,.18);padding-top:var(--space-5)}
+
+/* Sticky thumb bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom);transform:translateY(0);transition:transform var(--dur-2) var(--ease-out)}
+.bar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:60px;background:var(--bg);text-decoration:none;font-size:.8125rem;font-weight:500;letter-spacing:.04em}
+.bar a:first-child{background:var(--ink);color:var(--bg)}
+.bar a:active{background:var(--surface)}
+.bar a:first-child:active{background:var(--accent)}
+.ftr{padding-bottom:calc(var(--space-7) + 61px + env(safe-area-inset-bottom))}
+@media (min-width:768px){.bar{display:none}.ftr{padding-bottom:var(--space-7)}}
+
+/* Motion */
+@keyframes rise{from{transform:translateY(105%)}to{transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes open{from{clip-path:inset(100% 0 0 0);transform:scale(1.08)}to{clip-path:inset(0 0 0 0);transform:none}}
+.js .hdr{animation:fade var(--dur-2) var(--ease-out) both}
+.js .hero__title .ln>span{animation:rise var(--dur-3) var(--ease-out) both;animation-delay:calc(150ms + var(--i) * 75ms)}
+.js .hero__media .arch{animation:open 1s var(--ease-out) 300ms both}
+.js .hero__kick,.js .hero__side,.js .hero__lede,.js .hero__cta,.js .hero__where{animation:fade var(--dur-3) var(--ease-out) both;animation-delay:650ms}
+.js .rv-up{opacity:0;transform:translateY(20px);transition:opacity var(--dur-3) var(--ease-out),transform var(--dur-3) var(--ease-out);transition-delay:calc(var(--d,0) * 70ms)}
+.js .rv-up.is-in{opacity:1;transform:none}
+@supports (animation-timeline:view()){
+  .hero__media img{animation:drift linear both;animation-timeline:view();animation-range:exit 0% exit 100%}
+  @keyframes drift{to{transform:scale(1.1) translateY(4%)}}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .js .rv-up{opacity:1;transform:none}
+  .nav li{opacity:1;transform:none}
+}
+</style>
+<!--sf:preview--><meta name="robots" content="noindex, nofollow"><!--/sf:preview-->
+<!--sf:og--><meta property="og:image" content="https://naturopathe-nadine-galvez-perpignan.aymenjallouli.dev/og.jpg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://naturopathe-nadine-galvez-perpignan.aymenjallouli.dev/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:image" content="https://naturopathe-nadine-galvez-perpignan.aymenjallouli.dev/og.jpg"><!--/sf:og-->
+</head>
+<body>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="hdr" id="haut">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#haut" aria-label="Nadine Galvez, naturopathe, retour en haut">
+      <svg viewBox="0 0 30 34" aria-hidden="true"><path d="M1 33V15a14 14 0 0 1 28 0v18z" fill="none" stroke="#535F3C" stroke-width="1.5"/><path d="M15 9c-1.6 3.5-1.6 7.5 0 11 1.6-3.5 1.6-7.5 0-11zM15 20c-3-.6-6-2.6-7.4-5.4 3 .2 5.8 2 7.4 5.4zm0 0c3-.6 6-2.6 7.4-5.4-3 .2-5.8 2-7.4 5.4zM15 20v9" fill="none" stroke="#8B3A5C" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+      <span class="brand__name">Nadine Galvez<small>Naturopathe · Perpignan</small></span>
+    </a>
+    <div class="hdr__cta">
+      <nav class="hdr__links" aria-label="Sections">
+        <a class="draw" href="#avis">Avis</a>
+        <a class="draw" href="#accompagnement">Accompagnement</a>
+        <a class="draw" href="#tarifs">Tarifs</a>
+        <a class="draw" href="#cabinet">Le cabinet</a>
+        <a class="draw" href="#acces">Accès</a>
+      </nav>
+      <a class="btn" href="tel:+33623291049">06 23 29 10 49</a>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu"><i></i>Menu</button>
+  </div>
+  <nav class="nav" id="menu" aria-label="Menu principal">
+    <ol>
+      <li style="--i:0"><a href="#avis">Avis</a></li>
+      <li style="--i:1"><a href="#accompagnement">Accompagnement</a></li>
+      <li style="--i:2"><a href="#tarifs">Séances &amp; tarifs</a></li>
+      <li style="--i:3"><a href="#cabinet">Le cabinet</a></li>
+      <li style="--i:4"><a href="#acces">Accès &amp; horaires</a></li>
+      <li style="--i:5"><a href="#contact">Rendez-vous</a></li>
+    </ol>
+    <div class="nav__foot">
+      <span>3 Imp. du Conflent, 66000 Perpignan</span>
+      <a class="lnk" href="tel:+33623291049">06 23 29 10 49</a>
+    </div>
+  </nav>
+</header>
+
+<main id="contenu">
+
+  <section class="hero" aria-labelledby="titre">
+    <div class="wrap grid">
+      <div class="hero__kick">
+        <p class="label">Naturopathie · Massages · <b>Réflexologie</b></p>
+      </div>
+      <div class="hero__media">
+        <div class="arch">
+          <img src="assets/photos/photo-05.jpg" width="900" height="1600" fetchpriority="high" alt="La table de massage du cabinet, drap blanc, flacons d’huiles et bougies, devant le mur vert sauge et le paravent aux colibris">
+        </div>
+      </div>
+      <h1 class="hero__title" id="titre">
+        <span class="ln"><span style="--i:0">Prendre</span></span>
+        <span class="ln"><span style="--i:1">le temps</span></span>
+        <span class="ln"><span style="--i:2">de vous</span></span>
+        <span class="ln"><span style="--i:3"><em>écouter.</em></span></span>
+      </h1>
+      <div class="hero__side">
+        <a class="rating" href="https://www.google.com/maps/place/?q=place_id:ChIJXXZc8NpvsBIR0pM6ItIRNzE" target="_blank" rel="noopener">
+          <span class="stars" aria-hidden="true"><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span>
+          <span class="rating__n">5,0</span>
+          <span class="rating__t">sur 5 · <span class="draw">17&nbsp;avis Google</span></span>
+        </a>
+        <p class="badge" data-status>Sur rendez-vous</p>
+      </div>
+      <p class="hero__lede">Nadine Galvez, naturopathe à Perpignan. Une première consultation d’environ <strong>1&nbsp;h&nbsp;30</strong> pour parler stress, sommeil, énergie ou digestion. Et des massages d’une heure, sur rendez-vous.</p>
+      <div class="hero__cta">
+        <a class="btn" href="tel:+33623291049"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 7.3 7.3l1.4-2.2L21 15.5V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Appeler Nadine</a>
+        <a class="btn btn--ghost" href="sms:+33623291049?&amp;body=Bonjour%20Nadine%2C%20je%20souhaiterais%20prendre%20rendez-vous.%20Quelles%20sont%20vos%20disponibilit%C3%A9s%20%3F%20Merci%20beaucoup."><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Envoyer un SMS</a>
+      </div>
+      <p class="hero__where"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>3 Imp. du Conflent, 66000 Perpignan</p>
+    </div>
+  </section>
+
+  <section class="sec proof" id="avis" aria-labelledby="avis-t">
+    <div class="wrap">
+      <div class="proof__top">
+        <p class="label rv-up">Ce qu’en disent ses clients</p>
+        <h2 class="proof__quote rv-up" id="avis-t">«&nbsp;Elle prend réellement le temps d’écouter, de poser les bonnes questions et de noter chaque petit détail…&nbsp;»<cite>sarah R. · avis Google</cite></h2>
+        <div class="proof__score rv-up">
+          <span class="rating__n">5,0</span>
+          <span class="rating__t"><span class="stars" aria-label="5 étoiles sur 5"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span><br>Note moyenne sur 17&nbsp;avis Google</span>
+        </div>
+      </div>
+
+      <div class="rail" tabindex="0" aria-label="Avis de clients, faire défiler horizontalement">
+        <figure class="rv rv-up" style="--d:0">
+          <blockquote>J’ai consulté Nadine pour des douleurs aux mains liées à l’arthrose et une grande fatigue. J’ai trouvé une praticienne à l’écoute, douce et très professionnelle. Elle prend le temps d’expliquer et d’adapter ses conseils. Je me suis sentie comprise et rassurée.</blockquote>
+          <figcaption><span>Isabelle G.<small>Naturopathie</small></span><span class="stars" aria-label="5 étoiles"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span></figcaption>
+        </figure>
+        <figure class="rv rv-up" style="--d:1">
+          <blockquote>Des les premières minutes, je me suis sentie détendue et en totale confiance. Nadine Gálvez est très professionnelle, à l’écoute, … et d’une grande douceur.</blockquote>
+          <figcaption><span>Maria D.<small>Réflexologie plantaire</small></span><span class="stars" aria-label="5 étoiles"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span></figcaption>
+        </figure>
+        <figure class="rv rv-up" style="--d:2">
+          <blockquote>Je suis sorti, je me sentais bien, léger et en harmonie avec mon corps et ma tête. Nadine est très à l’écoute, très douce et patiente. J’y retournerai et je recommande fortement.</blockquote>
+          <figcaption><span>thierry G.<small>Première découverte</small></span><span class="stars" aria-label="5 étoiles"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span></figcaption>
+        </figure>
+        <figure class="rv rv-up" style="--d:3">
+          <blockquote>Son approche est à la fois douce, bienveillante et très professionnelle. Je me suis sentie écoutée, comprise et en confiance tout au long de la consultation.</blockquote>
+          <figcaption><span>Audrey M.<small>Naturopathie · sommeil</small></span><span class="stars" aria-label="5 étoiles"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span></figcaption>
+        </figure>
+        <figure class="rv rv-up" style="--d:4">
+          <blockquote>On se sent rapidement en confiance, écoutée et surtout prise en considération. J’ai particulièrement apprécié son approche, à la fois professionnelle, humaine et bienveillante. Elle ne fait pas les choses à la va-vite…</blockquote>
+          <figcaption><span>sarah R.<small>Naturopathie</small></span><span class="stars" aria-label="5 étoiles"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l2.6 5.6 6.1.7-4.5 4.2 1.2 6L10 15l-5.4 3 1.2-6L1.3 7.8l6.1-.7z"/></svg></span></figcaption>
+        </figure>
+      </div>
+
+      <div class="rail-foot">
+        <p class="rail-hint"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M15 7l5 5-5 5"/></svg>Faites glisser pour lire la suite</p>
+        <a class="more" href="https://www.google.com/maps/place/?q=place_id:ChIJXXZc8NpvsBIR0pM6ItIRNzE" target="_blank" rel="noopener"><span class="draw">Voir les 17&nbsp;avis sur Google</span><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="time" aria-labelledby="time-t">
+    <div class="wrap">
+      <p class="time__num rv-up" aria-hidden="true">1<span>h</span>30</p>
+      <div class="grid">
+        <p class="label rv-up">La première consultation</p>
+        <h2 class="time__txt rv-up" id="time-t">Une heure trente pour vous écouter, poser les questions et noter ce qui compte. Ensuite seulement, les conseils.</h2>
+        <p class="time__note rv-up">C’est la durée d’un premier rendez-vous de naturopathie. Les consultations de suivi viennent après, à votre rythme.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec care" id="accompagnement" aria-labelledby="care-t">
+    <div class="wrap grid">
+      <div class="care__side rv-up">
+        <p class="label">Naturopathie</p>
+        <h2 class="h2" id="care-t">Stress, fatigue, sommeil&nbsp;: un accompagnement <em>à votre rythme.</em></h2>
+        <div class="prose">
+          <p>Praticienne naturopathe certifiée, Nadine Galvez accompagne en particulier les femmes dans les périodes de stress, de fatigue persistante et de transition hormonale.</p>
+          <p>Son approche, dans ses mots&nbsp;: «&nbsp;globale, personnalisée et respectueuse de votre rythme&nbsp;».</p>
+        </div>
+      </div>
+      <ol class="care__list">
+        <li class="rv-up"><h3>Le stress et les émotions</h3></li>
+        <li class="rv-up"><h3>Le sommeil</h3><p><q>Des conseils pertinents et adaptés à ma situation</q>, écrit Audrey M., venue pour ses problèmes de sommeil.</p></li>
+        <li class="rv-up"><h3>L’énergie</h3></li>
+        <li class="rv-up"><h3>Les transitions hormonales</h3></li>
+        <li class="rv-up"><h3>L’équilibre digestif</h3></li>
+        <li class="rv-up"><h3>Le bien-être global</h3></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="svc" id="tarifs" aria-labelledby="svc-t">
+    <div class="wrap">
+      <div class="svc__panel rv-up">
+        <div class="svc__head">
+          <p class="label">Séances &amp; tarifs</p>
+          <h2 class="h2" id="svc-t">Naturopathie, massages, <em>réflexologie.</em></h2>
+        </div>
+        <div class="svc__img" aria-hidden="true"><div class="arch"><img src="assets/photos/photo-05.jpg" width="900" height="1600" loading="lazy" decoding="async" alt=""></div></div>
+        <div class="menu">
+          <div>
+            <h3>Naturopathie</h3>
+            <ul>
+              <li><span class="n">Première consultation</span><span class="p">65&nbsp;€</span><span class="d">Environ 1&nbsp;h&nbsp;30</span></li>
+              <li><span class="n">Consultation de suivi</span><span class="p">50&nbsp;€</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Massages &amp; réflexologie · 1&nbsp;h</h3>
+            <ul>
+              <li><span class="n">Massage bien-être relaxant</span><span class="p">50 / 60&nbsp;€</span><span class="v"><span>50&nbsp;€ huile végétale</span><span>60&nbsp;€ synergie d’huiles essentielles</span></span></li>
+              <li><span class="n">Massage bien-être décontractant</span><span class="p">50 / 60&nbsp;€</span><span class="v"><span>50&nbsp;€ huile végétale</span><span>60&nbsp;€ synergie d’huiles essentielles</span></span></li>
+              <li><span class="n">Massage dos – nuque – tête</span><span class="p">60&nbsp;€</span></li>
+              <li><span class="n">Massage facial bien-être</span><span class="p">60&nbsp;€</span></li>
+              <li><span class="n">Réflexologie plantaire de bien-être</span><span class="p">60&nbsp;€</span></li>
+            </ul>
+          </div>
+          <div class="svc__foot">
+            <p><strong>Uniquement sur rendez-vous.</strong> Règlement par virement (Wero), espèces ou chèque.</p>
+            <p><a class="lnk" href="https://sites.google.com/view/nadine-galvez-naturopathe/" target="_blank" rel="noopener">Le détail des prestations sur le site de Nadine</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec cab" id="cabinet" aria-labelledby="cab-t">
+    <div class="wrap">
+      <div class="sec__head rv-up">
+        <p class="label">Le cabinet</p>
+        <h2 class="h2" id="cab-t">Murs vert sauge, bois clair, <em>lumière douce.</em></h2>
+      </div>
+      <div class="collage">
+        <figure class="ph rv-up" style="--d:0"><div class="frame"><img src="assets/photos/photo-02.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="Le coin consultation&nbsp;: bureau en bois clair, chaises blanches et paravent peint de fuchsias et de colibris" style="object-position:22% 50%"></div><figcaption><span>01</span>Le paravent aux colibris</figcaption></figure>
+        <figure class="ph rv-up" style="--d:1"><div class="frame"><img src="assets/photos/photo-06.jpg" width="1600" height="900" loading="lazy" decoding="async" alt="Le bureau de consultation face au mur vert sauge couvert de planches encadrées" style="object-position:45% 50%"></div><figcaption><span>02</span>Le bureau de consultation</figcaption></figure>
+        <figure class="ph rv-up" style="--d:2"><div class="frame"><img src="assets/photos/photo-01.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="La table de massage dans la pénombre, bougies allumées sur une étagère" style="object-position:62% 40%;filter:brightness(1.12)"></div><figcaption><span>03</span>Bougies et lumière tamisée</figcaption></figure>
+      </div>
+      <blockquote class="cab__quote rv-up">«&nbsp;À la fin de la séance j’ai ressenti un relâchement des tensions et un bien-être général durable…&nbsp;»<cite>Maria D. · réflexologie plantaire</cite></blockquote>
+    </div>
+  </section>
+
+  <section class="sec visit" id="acces" aria-labelledby="visit-t">
+    <div class="wrap grid">
+      <div class="visit__a rv-up">
+        <p class="label">Accès &amp; horaires</p>
+        <h2 class="h2" id="visit-t">Au n°&nbsp;3, <em>la porte noire.</em></h2>
+        <div class="visit__door">
+          <div class="arch"><img src="assets/photos/photo-03.jpg" width="1600" height="1200" loading="lazy" decoding="async" alt="La façade crème du 3 impasse du Conflent, balcons en fer forgé et porte noire sous le chiffre 3"></div>
+          <div>
+            <address class="addr">3 Imp. du Conflent<br>66000 Perpignan</address>
+          </div>
+        </div>
+        <p class="access"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="4.5" r="1.5"/><path d="M11 7.5v6h5l2.5 5.5M11 10.5h5M8 11.5a5 5 0 1 0 7 6"/></svg>Entrée et places assises accessibles en fauteuil roulant.</p>
+      </div>
+      <div class="visit__b rv-up">
+        <table class="hours">
+          <caption><span class="label">Horaires</span><span class="badge" data-status>Sur rendez-vous</span></caption>
+          <tbody>
+            <tr data-day="lundi"><th scope="row">lundi</th><td>10:00–19:00</td></tr>
+            <tr data-day="mardi"><th scope="row">mardi</th><td>10:00–19:00</td></tr>
+            <tr data-day="mercredi"><th scope="row">mercredi</th><td>10:00–19:00</td></tr>
+            <tr data-day="jeudi"><th scope="row">jeudi</th><td>10:00–19:00</td></tr>
+            <tr data-day="vendredi"><th scope="row">vendredi</th><td>10:00–19:00</td></tr>
+            <tr data-day="samedi" class="is-closed"><th scope="row">samedi</th><td>Fermé</td></tr>
+            <tr data-day="dimanche" class="is-closed"><th scope="row">dimanche</th><td>Fermé</td></tr>
+          </tbody>
+        </table>
+        <div class="map">
+          <a class="map__fb lnk" href="https://www.google.com/maps/place/?q=place_id:ChIJXXZc8NpvsBIR0pM6ItIRNzE" target="_blank" rel="noopener">Ouvrir le plan dans Google Maps</a>
+          <iframe src="https://www.google.com/maps?q=Naturopathe%20Nadine%20Galvez%2C%203%20Imp.%20du%20Conflent%2C%2066000%20Perpignan&amp;output=embed" title="Plan&nbsp;: 3 impasse du Conflent, Perpignan" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="visit__btns">
+          <a class="btn" href="https://www.google.com/maps/dir/?api=1&amp;destination=Naturopathe%20Nadine%20Galvez%2C%203%20Imp.%20du%20Conflent%2C%2066000%20Perpignan" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>Itinéraire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact" aria-labelledby="contact-t">
+    <div class="wrap grid">
+      <p class="label rv-up" style="grid-column:1/-1">Prendre rendez-vous</p>
+      <h2 class="h2 contact__h rv-up" id="contact-t">Votre rendez-vous, <em>par un appel ou un SMS.</em></h2>
+      <a class="tel-big rv-up draw" href="tel:+33623291049">06 23 29 10 49</a>
+      <p class="contact__p rv-up">Consultations uniquement sur rendez-vous, du lundi au vendredi, de 10&nbsp;h à 19&nbsp;h.</p>
+      <div class="contact__btns rv-up">
+        <a class="btn btn--light" href="tel:+33623291049"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 7.3 7.3l1.4-2.2L21 15.5V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Appeler</a>
+        <a class="btn btn--line-light" href="sms:+33623291049?&amp;body=Bonjour%20Nadine%2C%20je%20souhaiterais%20prendre%20rendez-vous.%20Quelles%20sont%20vos%20disponibilit%C3%A9s%20%3F%20Merci%20beaucoup."><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Envoyer un SMS</a>
+      </div>
+      <div class="contact__meta rv-up">
+        <a href="mailto:nadine5.naturopathe@gmail.com?subject=Demande%20de%20rendez-vous"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="draw">nadine5.naturopathe@gmail.com</span></a>
+        <a href="https://sites.google.com/view/nadine-galvez-naturopathe/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span class="draw">Son site&nbsp;: prestations détaillées</span></a>
+        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Naturopathe%20Nadine%20Galvez%2C%203%20Imp.%20du%20Conflent%2C%2066000%20Perpignan" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><span class="draw">3 Imp. du Conflent, Perpignan</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="ftr">
+  <div class="wrap">
+    <span>Nadine Galvez · Naturopathe et praticienne en massages bien-être et réflexologie plantaire à Perpignan</span>
+    <span>© <span data-year></span> Nadine Galvez</span>
+  </div>
+</footer>
+
+<nav class="bar" aria-label="Actions rapides">
+  <a href="tel:+33623291049"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h3.5l1.7 4.3-2.2 1.4a11 11 0 0 0 7.3 7.3l1.4-2.2L21 15.5V19a2 2 0 0 1-2 2A17 17 0 0 1 3 5a2 2 0 0 1 2-2z"/></svg>Appeler</a>
+  <a href="sms:+33623291049?&amp;body=Bonjour%20Nadine%2C%20je%20souhaiterais%20prendre%20rendez-vous.%20Quelles%20sont%20vos%20disponibilit%C3%A9s%20%3F%20Merci%20beaucoup."><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>SMS</a>
+  <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Naturopathe%20Nadine%20Galvez%2C%203%20Imp.%20du%20Conflent%2C%2066000%20Perpignan" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l18-8-8 18-2-8z"/></svg>Itinéraire</a>
+</nav>
+
+<script>
+(() => {
+  const HOURS = {lundi:"10:00–19:00",mardi:"10:00–19:00",mercredi:"10:00–19:00",jeudi:"10:00–19:00",vendredi:"10:00–19:00",samedi:"Fermé",dimanche:"Fermé"};
+  const DAYS = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+
+  const parse = (s) => {
+    s = String(s || "").toLowerCase().trim();
+    if (!s || /ferm|closed/.test(s)) return [];
+    if (/24\s*h|24\/24|24 heures/.test(s)) return [[0, 1440]];
+    return s.split(/[,;]|\set\s/).map(p => {
+      const m = p.match(/(\d{1,2})(?:[:h.](\d{2}))?\s*[–—-]\s*(\d{1,2})(?:[:h.](\d{2}))?/);
+      if (!m) return null;
+      const a = +m[1] * 60 + (+m[2] || 0);
+      let b = +m[3] * 60 + (+m[4] || 0);
+      if (b <= a) b += 1440;
+      return [a, b];
+    }).filter(Boolean);
+  };
+  const fmt = (min) => { min %= 1440; const h = Math.floor(min / 60), m = min % 60; return h + " h" + (m ? String(m).padStart(2, "0") : ""); };
+
+  let day, now;
+  try {
+    const parts = new Intl.DateTimeFormat("fr-FR", {timeZone: "Europe/Paris", weekday: "long", hour: "2-digit", minute: "2-digit", hourCycle: "h23"}).formatToParts(new Date());
+    const get = (t) => (parts.find(p => p.type === t) || {}).value;
+    day = DAYS.indexOf(get("weekday"));
+    now = (+get("hour") % 24) * 60 + (+get("minute"));
+  } catch (e) { day = -1; }
+  if (day < 0 || isNaN(now)) { const d = new Date(); day = d.getDay(); now = d.getHours() * 60 + d.getMinutes(); }
+
+  const R = DAYS.map(d => parse(HOURS[d]));
+  let open = null;
+  for (const [a, b] of R[day]) if (now >= a && now < b) open = b;
+  for (const [a, b] of R[(day + 6) % 7]) if (b > 1440 && now + 1440 < b) open = b - 1440;
+
+  let txt;
+  if (open !== null) txt = open >= 1440 && R[day].some(r => r[0] === 0 && r[1] === 1440) ? "Ouvert maintenant · 24 h/24" : "Ouvert maintenant · jusqu’à " + fmt(open);
+  else {
+    txt = "Fermé";
+    for (let i = 0; i < 8; i++) {
+      const d = (day + i) % 7;
+      const next = R[d].map(r => r[0]).filter(a => i > 0 || a > now).sort((x, y) => x - y)[0];
+      if (next !== undefined) { txt += " · ouvre " + (i === 0 ? "" : i === 1 ? "demain " : DAYS[d] + " ") + "à " + fmt(next); break; }
+    }
+  }
+  document.querySelectorAll("[data-status]").forEach(el => { el.textContent = txt; el.classList.toggle("is-open", open !== null); });
+  const row = document.querySelector('[data-day="' + DAYS[day] + '"]');
+  if (row) row.classList.add("is-today");
+  document.querySelectorAll("[data-year]").forEach(el => el.textContent = new Date().getFullYear());
+
+  // Header shrink
+  const hdr = document.querySelector(".hdr");
+  const onScroll = () => hdr.classList.toggle("is-scrolled", scrollY > 24);
+  addEventListener("scroll", onScroll, {passive: true}); onScroll();
+
+  // Menu
+  const btn = document.querySelector(".menu-btn"), nav = document.getElementById("menu");
+  const setMenu = (on) => {
+    btn.setAttribute("aria-expanded", on);
+    nav.classList.toggle("is-open", on);
+    document.body.classList.toggle("is-locked", on);
+    if (on) nav.querySelector("a").focus({preventScroll: true});
+  };
+  btn.addEventListener("click", () => setMenu(btn.getAttribute("aria-expanded") !== "true"));
+  nav.addEventListener("click", (e) => { if (e.target.closest("a")) setMenu(false); });
+  addEventListener("keydown", (e) => { if (e.key === "Escape" && nav.classList.contains("is-open")) { setMenu(false); btn.focus(); } });
+
+  // Reveals
+  const els = document.querySelectorAll(".rv-up");
+  if (!("IntersectionObserver" in window)) { els.forEach(el => el.classList.add("is-in")); return; }
+  const io = new IntersectionObserver((entries) => entries.forEach(en => {
+    if (en.isIntersecting) { en.target.classList.add("is-in"); io.unobserve(en.target); }
+  }), {rootMargin: "0px 0px -8% 0px", threshold: 0.08});
+  els.forEach(el => io.observe(el));
+})();
+</script>
+<!--sf:preview--><div style="padding:18px 16px;font:13px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-align:center;background:#0f0f10;color:#a3a3a8">Aperçu réalisé par Aymen Jallouli pour Naturopathe Nadine Galvez : ce site n'est pas encore le site officiel de l'établissement.</div><!--/sf:preview-->
+<!--sf:track--><script>(function(){try{var q=new URLSearchParams(location.search),r=q.get('r')||sessionStorage.getItem('sf_r');if(!r)return;sessionStorage.setItem('sf_r',r);navigator.sendBeacon("https://track.aymenjallouli.dev/t"+'?r='+encodeURIComponent(r)+'&p='+encodeURIComponent(location.pathname));}catch(e){}})();</script><!--/sf:track-->
+</body>
+</html>
